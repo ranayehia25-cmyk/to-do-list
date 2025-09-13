@@ -72,18 +72,19 @@ taskList.addEventListener(
             completedTasks.push({taskStatus: "Completed"});
             console.log(completedTasks);
         }     
-         if (target.classList.contains("edit_btn")) {
-        const newName = prompt("Edit task name:", tasks[index].taskName);
-        const newDate = prompt("Edit due date (dd-mm-yyyy):", tasks[index].taskDate);
-        if (newName && newDate) {
-            tasks[index].taskName = newName;
-            tasks[index].taskDate = newDate;
-            saveTasks();
-            renderTasks(tasks);
-            showFilterMessage("All Tasks");
-        }
+        if (event.target.classList.contains("edit_btn")) {
+    const taskItem = event.target.parentElement;
+    const index = taskItem.getAttribute("data-index");
+    const newName = prompt("Edit task name:", tasks[index].taskName);
+    const newDate = prompt("Edit due date (yyyy-mm-dd):", tasks[index].taskDate);
+    if (newName && newDate) {
+        tasks[index].taskName = newName;
+        tasks[index].taskDate = newDate;
+        renderTasks();
     }
-});
+}
+        }
+    );
 /*Filter buttons*/
 /* const All-tasks = document.querySelector("#all-tasks");
 All-tasks.addEventListener(
