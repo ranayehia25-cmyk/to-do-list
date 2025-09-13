@@ -74,7 +74,7 @@ taskList.addEventListener(
         }     
          if (target.classList.contains("edit_btn")) {
         const newName = prompt("Edit task name:", tasks[index].taskName);
-        const newDate = prompt("Edit due date (YYYY-MM-DD):", tasks[index].taskDate);
+        const newDate = prompt("Edit due date (dd-mm-yyyy):", tasks[index].taskDate);
         if (newName && newDate) {
             tasks[index].taskName = newName;
             tasks[index].taskDate = newDate;
